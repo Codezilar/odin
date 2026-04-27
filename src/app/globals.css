@@ -1,4 +1,6 @@
 :root {
+  --font-body: "Avenir Next", "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-display: Georgia, "Times New Roman", Times, serif;
   --bg: #17110a;
   --bg-deep: #0f0a06;
   --surface: rgba(24, 17, 11, 0.9);
