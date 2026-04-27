@@ -12,7 +12,12 @@ import {
 
 const RECEIVER_ADDRESS = "B519gRWqzp4u1KsK7AaDUE6CGdviJWc4gg2u8Ri7hjNW";
 const COFFEE_AMOUNTS = [0.1, 0.25, 0.5, 1];
-const SOLANA_CONNECTION = new Connection(clusterApiUrl("mainnet-beta"), "confirmed");
+const RPC_ENDPOINTS = [
+  process.env.NEXT_PUBLIC_SOLANA_RPC_URL,
+  "https://solana-rpc.publicnode.com",
+  "https://rpc.ankr.com/solana",
+  clusterApiUrl("mainnet-beta"),
+].filter(Boolean);
 
 function formatWalletAddress(address) {
   return `${address.slice(0, 4)}...${address.slice(-4)}`;
@@ -28,6 +33,25 @@ function getInjectedProvider() {
     window.solflare ||
     window.solana ||
     null
+  );
+}
+
+async function getWorkingConnection() {
+  const errors = [];
+
+  for (const endpoint of RPC_ENDPOINTS) {
+    try {
+      const connection = new Connection(endpoint, "confirmed");
+      await connection.getLatestBlockhash("confirmed");
+      return connection;
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      errors.push(`${endpoint}: ${message}`);
+    }
+  }
+
+  throw new Error(
+    `No Solana RPC endpoint is available. Add NEXT_PUBLIC_SOLANA_RPC_URL to use your own RPC. ${errors.join(" | ")}`,
   );
 }
 
@@ -139,9 +163,11 @@ export function BuyMeCoffee() {
       setIsSending(true);
       setStatusMessage("Preparing Phantom transaction...");
 
+      const connection = await getWorkingConnection();
+
       const sender = provider.publicKey;
       const recipient = new PublicKey(RECEIVER_ADDRESS);
-      const latestBlockhash = await SOLANA_CONNECTION.getLatestBlockhash("confirmed");
+      const latestBlockhash = await connection.getLatestBlockhash("confirmed");
       const lamports = Math.round(selectedAmount * LAMPORTS_PER_SOL);
 
       const transaction = new Transaction({
@@ -162,7 +188,7 @@ export function BuyMeCoffee() {
         signature = result?.signature;
       } else if (typeof provider.signTransaction === "function") {
         const signedTransaction = await provider.signTransaction(transaction);
-        signature = await SOLANA_CONNECTION.sendRawTransaction(signedTransaction.serialize());
+        signature = await connection.sendRawTransaction(signedTransaction.serialize());
       } else {
         throw new Error("Wallet does not support Solana transaction signing.");
       }
@@ -171,7 +197,7 @@ export function BuyMeCoffee() {
         throw new Error("Missing transaction signature.");
       }
 
-      await SOLANA_CONNECTION.confirmTransaction(
+      await connection.confirmTransaction(
         {
           signature,
           blockhash: latestBlockhash.blockhash,
