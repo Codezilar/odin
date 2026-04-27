@@ -49,7 +49,7 @@ export function SiteHeader() {
           <span className="brand-mark" aria-hidden="true" />
           <div>
             <span className="brand-name">ODIN/HQ</span>
-            <span className="brand-tag">space, signal and craftsmanship</span>
+            <span className="brand-tag">signals, teams, trends, execution</span>
           </div>
         </div>
 
@@ -76,7 +76,7 @@ export function SiteHeader() {
           </nav>
 
           <a href="#coffee" className="demo-button" onClick={handleNavClick}>
-            Buy coffee
+            Support Odin
           </a>
         </div>
       </header>

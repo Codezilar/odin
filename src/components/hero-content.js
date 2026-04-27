@@ -3,78 +3,78 @@ import { BuyMeCoffee } from "@/components/buy-me-coffee";
 const processCards = [
   {
     id: "01",
-    title: "Space Mapping",
-    text: "We read the market, the memes, and the attention pockets before we touch the visuals.",
+    title: "Signal Reading",
+    text: "Odin tracks market structure, trend shifts, and degen attention before most of the timeline catches up.",
   },
   {
     id: "02",
-    title: "Positioning",
-    text: "Narrative, offer, and voice get sharpened until the brand feels inevitable on the timeline.",
+    title: "Narrative Positioning",
+    text: "Each project gets a sharper story, cleaner angle, and stronger market identity built for web3 attention.",
   },
   {
     id: "03",
-    title: "Visual System",
-    text: "Every color, frame, card, and interaction is tuned to feel expensive and culture-native.",
+    title: "Team Formation",
+    text: "From mods to managers to builders, the right people get plugged into the system to keep momentum alive.",
   },
   {
     id: "04",
-    title: "Launch Assets",
-    text: "We package the rollout with pages, social cuts, and proof-first moments worth sharing.",
+    title: "Project Structure",
+    text: "Odin helps shape launches across Solana and web3 with the operational layer needed to move from idea to execution.",
   },
   {
     id: "05",
-    title: "Community Fit",
-    text: "The final layer makes the brand usable by holders, lurkers, and power users at once.",
+    title: "Community Pressure",
+    text: "Telegram, X, and community flow are managed with the right mix of culture, clarity, and controlled energy.",
   },
   {
     id: "06",
-    title: "Wins Loop",
-    text: "Receipts, milestones, and performance snapshots turn each launch into momentum for the next one.",
+    title: "Compounding Edge",
+    text: "Signals, execution, and team structure turn isolated wins into a system that keeps producing over time.",
   },
 ];
 
 const featureCards = [
-  "Brand systems built for web3-native attention.",
-  "Launch pages that look premium and convert signal.",
-  "Case-study storytelling that makes wins feel tangible.",
-  "Social identity packs for X, Telegram, and Discord.",
+  "Solana-native project building with trader instinct.",
+  "Telegram signals and Twitter trend intelligence under one roof.",
+  "Team building across managers, mods, operators, and builders.",
+  "A portfolio home that presents Odin as a full web3 system.",
 ];
 
 const tableRows = [
-  ["Narrative clarity", true, false, false, false],
-  ["Premium visual system", true, false, true, false],
-  ["Launch-ready assets", true, false, false, false],
-  ["Degen-native taste", true, false, false, false],
-  ["Fast iteration cycles", true, true, false, false],
-  ["Receipts-first proofing", true, false, false, false],
+  ["Solana-native positioning", true, false, false, false],
+  ["Signal-led market reads", true, false, false, false],
+  ["Team builder mindset", true, false, true, false],
+  ["Community management layer", true, false, false, true],
+  ["Trend-aware execution", true, true, false, false],
+  ["Operator plus brand presence", true, false, false, false],
 ];
 
 const reviews = [
   {
     quote:
-      "ODIN turned our rough launch deck into a brand people instantly wanted to repost. The quality jump was obvious.",
-    name: "Nero",
-    role: "Founder, stealth memecoin",
+      "Odin understands how traders think, how communities move, and how projects need to position on Solana. That mix is rare.",
+    name: "Sol founder",
+    role: "Launch partner",
   },
   {
     quote:
-      "Everything felt cleaner, sharper, and more intentional. We stopped looking like just another crypto page.",
-    name: "Maya",
-    role: "Ops lead, onchain studio",
+      "It never felt like we hired one person. It felt like we plugged into a system that already knew how to move.",
+    name: "Community lead",
+    role: "Web3 project operator",
   },
   {
     quote:
-      "The process was fast, but the craft still felt high-end. That balance is harder to find than people think.",
-    name: "Santi",
-    role: "Community builder",
+      "From signals to team structure to narrative clarity, Odin brought conviction and coordination at the same time.",
+    name: "Builder",
+    role: "Onchain ecosystem contributor",
   },
 ];
 
 const faqs = [
-  "What does ODIN/HQ actually build?",
-  "Is this only for tokens and meme projects?",
-  "Can you handle launch assets and socials too?",
-  "What if we already have a rough identity?",
+  "What does Odin actually do across web3 projects?",
+  "Is this mainly for Solana and degen trading culture?",
+  "Can Odin help with team building, mods, and management too?",
+  "Do you also post signals and talk about market trends?",
 ];
 
 export function HeroContent() {
@@ -82,33 +82,36 @@ export function HeroContent() {
     <div className="page-stack">
       <section className="hero-panel" id="wins">
         <div className="hero-copy">
-          <span className="eyebrow">degen-native creative partner</span>
+          <span className="eyebrow">solana, signals, teams, momentum</span>
           <h1>
-            The home for
+            ODIN is not
             <br />
-            <span>space, craftsmanship,</span>
+            <span>just a person.</span>
             <br />
-            and visible wins.
+            ODIN is a system.
           </h1>
           <p>
-            Built for founders, operators, and web3 teams who want their
-            presence to feel as sharp as their conviction. ODIN/HQ turns raw
-            momentum into premium identity, launch-ready pages, and social
-            signal people remember.
+            Sensei in degen trading, Solana-native projects, and web3 teams
+            that need more than hype. Odin works across signals, market
+            trends, project building, team building, management, moderation,
+            and online positioning.
+          </p>
+          <p>
+            <strong>Been in the space for over a decade.</strong>
           </p>
 
           <div className="hero-actions">
             <a href="#proof" className="cta-primary">
-              View wins
+              Explore the system
             </a>
             <a href="#coffee" className="cta-secondary">
-              Buy a coffee
+              Support Odin
             </a>
           </div>
 
           <div className="hero-meta">
-            <span>Trusted by founders, traders, and builders</span>
-            <strong>4.9/5 signal rating</strong>
+            <span>Telegram signals. Twitter trend reads. Web3 team execution.</span>
+            <strong>10+ years in the space</strong>
           </div>
         </div>
 
@@ -116,42 +119,42 @@ export function HeroContent() {
           <div className="hero-glow" />
           <div className="hero-device">
             <div className="mini-card mini-card-top">
-              <span>Weekly wins</span>
-              <strong>$5.27M</strong>
-              <small>reach across launch assets</small>
+              <span>Trend radar</span>
+              <strong>live</strong>
+              <small>signals, narrative and market watch</small>
             </div>
 
             <div className="hero-screen">
               <div className="screen-top">
-                <span>ODIN score</span>
-                <strong>89</strong>
+                <span>ODIN system</span>
+                <strong>24/7</strong>
               </div>
               <div className="screen-stats">
                 <article>
-                  <strong>15</strong>
-                  <span>launches</span>
+                  <strong>10+</strong>
+                  <span>years</span>
                 </article>
                 <article>
-                  <strong>12</strong>
-                  <span>partners</span>
+                  <strong>Sol</strong>
+                  <span>native</span>
                 </article>
                 <article>
-                  <strong>49</strong>
-                  <span>wins</span>
+                  <strong>X</strong>
+                  <span>trends</span>
                 </article>
                 <article>
-                  <strong>20</strong>
-                  <span>spaces</span>
+                  <strong>TG</strong>
+                  <span>signals</span>
                 </article>
               </div>
               <div className="screen-bar">
-                <span>Momentum</span>
+                <span>Market pulse</span>
                 <div>
                   <i />
                 </div>
               </div>
               <a href="#process" className="screen-button">
-                Explore process
+                See how Odin moves
               </a>
             </div>
 
@@ -159,20 +162,20 @@ export function HeroContent() {
             <div className="coin coin-two" />
             <div className="coin coin-three" />
             <div className="mini-card mini-card-bottom">
-              <span>Positioning status</span>
-              <strong>live and compounding</strong>
+              <span>Operator status</span>
+              <strong>active across signal, teams, and execution</strong>
             </div>
           </div>
         </div>
       </section>
 
       <section className="logo-strip">
-        <span>Trusted in fast-moving corners of the space</span>
+        <span>Built for the fast-moving side of Solana and web3</span>
         <div>
-          <p>Launch circles</p>
-          <p>Alpha groups</p>
-          <p>Onchain teams</p>
-          <p>Founder networks</p>
+          <p>Degen trading</p>
+          <p>Signal channels</p>
+          <p>Project teams</p>
+          <p>Operator networks</p>
         </div>
       </section>
 
@@ -180,8 +183,8 @@ export function HeroContent() {
 
       <section className="content-section" id="process">
         <div className="section-copy center">
-          <span className="eyebrow">How does it work?</span>
-          <h2>A clean process that still feels native to crypto speed.</h2>
+          <span className="eyebrow">How the system works</span>
+          <h2>Odin reads the market, builds the structure, and keeps the machine moving.</h2>
         </div>
 
         <div className="process-grid">
@@ -197,16 +200,17 @@ export function HeroContent() {
 
       <section className="content-section market-section">
         <div className="section-copy">
-          <span className="eyebrow">Seamless access to global markets with craft</span>
-          <h2>Bridging crypto attention and premium brand execution.</h2>
+          <span className="eyebrow">Signals, trends, and execution</span>
+          <h2>From market reads to project structure, Odin covers more than one lane.</h2>
           <p>
-            Good web3 work is part narrative, part interface, part social
-            gravity. This page architecture makes all three visible.
+            The edge is not just posting calls. It is understanding where the
+            market is moving, what the narrative is becoming, and how a team
+            should position before attention peaks.
           </p>
           <div className="pill-row">
-            <span>Brand strategy</span>
-            <span>Onchain aesthetics</span>
-            <span>Community-ready assets</span>
+            <span>Signal analysis</span>
+            <span>Trend mapping</span>
+            <span>Project execution</span>
           </div>
         </div>
 
@@ -217,19 +221,19 @@ export function HeroContent() {
           <div className="donut-legend">
             <div>
               <i className="legend-brand" />
-              <span>Brand system 40%</span>
+              <span>Signals 40%</span>
             </div>
             <div>
               <i className="legend-launch" />
-              <span>Launch assets 25%</span>
+              <span>Projects 25%</span>
             </div>
             <div>
               <i className="legend-social" />
-              <span>Social presence 20%</span>
+              <span>Teams 20%</span>
             </div>
             <div>
               <i className="legend-proof" />
-              <span>Proof capture 15%</span>
+              <span>Trends 15%</span>
             </div>
           </div>
         </div>
@@ -251,12 +255,12 @@ export function HeroContent() {
         </div>
 
         <div className="section-copy">
-          <span className="eyebrow">Everything in one system</span>
-          <h2>One direction for the page, the socials, the wins, and the story.</h2>
+          <span className="eyebrow">Everything under Odin</span>
+          <h2>One system for signal, presence, team structure, and project momentum.</h2>
           <p>
-            Instead of scattered assets, your client gets a single visual
-            language that looks consistent across launch threads, landing pages,
-            deck screenshots, and community touchpoints.
+            Odin is not boxed into one title. Trader, builder, manager,
+            operator, strategist, and community force can all exist under the
+            same roof when the system is aligned.
           </p>
         </div>
       </section>
@@ -269,46 +273,46 @@ export function HeroContent() {
           <ul>
             <li>
               <span>35%</span>
-              <p>Identity system</p>
+              <p>Signals and market reads</p>
             </li>
             <li>
               <span>25%</span>
-              <p>Landing experience</p>
+              <p>Project building</p>
             </li>
             <li>
               <span>20%</span>
-              <p>Launch support</p>
+              <p>Team and management</p>
             </li>
             <li>
               <span>20%</span>
-              <p>Social ecosystem</p>
+              <p>Social presence</p>
             </li>
           </ul>
         </div>
 
         <div className="token-copy">
-          <span className="eyebrow">What is inside the system?</span>
-          <h2>A client-ready stack that makes the whole brand feel coherent.</h2>
+          <span className="eyebrow">What lives inside Odin?</span>
+          <h2>A web3 operating system built around people, projects, and timing.</h2>
           <div className="number-list">
             <article>
               <strong>01</strong>
               <div>
-                <h3>Token-like precision</h3>
-                <p>Clear hierarchy, focused sections, and attention funnels that feel deliberate.</p>
+                <h3>Trading instinct</h3>
+                <p>Signals and market reads come from years of living inside volatile cycles and learning how attention really moves.</p>
               </div>
             </article>
             <article>
               <strong>02</strong>
               <div>
-                <h3>Timeline-native visuals</h3>
-                <p>The same visual DNA can stretch into thumbnails, banners, threads, and social promos.</p>
+                <h3>Builder mindset</h3>
+                <p>Projects need structure, team alignment, and operators who can execute beyond surface-level hype.</p>
               </div>
             </article>
             <article>
               <strong>03</strong>
               <div>
-                <h3>Receipts built into the story</h3>
-                <p>Wins, testimonials, and proof points do more than decorate the page. They drive trust.</p>
+                <h3>Community pressure control</h3>
+                <p>Telegram, X, moderation, and ongoing management all feed into the same larger strategy.</p>
               </div>
             </article>
           </div>
@@ -317,33 +321,33 @@ export function HeroContent() {
 
       <section className="content-section roadmap-section">
         <div className="section-copy">
-          <span className="eyebrow">Roadmap</span>
-          <h2>From first spark to public momentum.</h2>
+          <span className="eyebrow">Operating model</span>
+          <h2>From market read to project momentum.</h2>
         </div>
         <div className="roadmap-card">
           <div className="roadmap-step active">
             <strong>Phase 01</strong>
-            <p>Brand audit, mood direction, market reading.</p>
+            <p>Read the market, map the trend, spot the opening.</p>
           </div>
           <div className="roadmap-step active">
             <strong>Phase 02</strong>
-            <p>UI build, launch page, and social asset system.</p>
+            <p>Shape the project, the team, and the public angle.</p>
           </div>
           <div className="roadmap-step">
             <strong>Phase 03</strong>
-            <p>Proof layering, testimonials, and conversion polish.</p>
+            <p>Run signals, social pressure, moderation, and execution rhythm.</p>
           </div>
           <div className="roadmap-step">
             <strong>Phase 04</strong>
-            <p>Expansion into case studies, dashboards, and community loops.</p>
+            <p>Compound attention into reputation, proof, and longer-term trust.</p>
           </div>
         </div>
       </section>
 
       <section className="content-section feature-section">
         <div className="section-copy">
-          <span className="eyebrow">Our features</span>
-          <h2>Made to give a founder’s space more gravity.</h2>
+          <span className="eyebrow">Core strengths</span>
+          <h2>Made for web3 projects that need more than one-dimensional help.</h2>
         </div>
         <div className="feature-grid">
           {featureCards.map((feature) => (
@@ -357,8 +361,8 @@ export function HeroContent() {
 
       <section className="content-section table-section">
         <div className="section-copy center">
-          <span className="eyebrow">Standout features</span>
-          <h2>Not every page in crypto needs to look the same.</h2>
+          <span className="eyebrow">What makes Odin different</span>
+          <h2>Not every operator can read the market, build teams, and shape public presence together.</h2>
         </div>
         <div className="comparison-table">
           <div className="table-head">
@@ -382,8 +386,8 @@ export function HeroContent() {
 
       <section className="content-section review-section">
         <div className="section-copy">
-          <span className="eyebrow">Trader reviews</span>
-          <h2>Clients mostly notice the difference in how confident the brand suddenly feels.</h2>
+          <span className="eyebrow">What people notice</span>
+          <h2>The difference is usually in the clarity, timing, and pressure the system can handle.</h2>
         </div>
         <div className="review-grid">
           {reviews.map((review) => (
@@ -400,7 +404,7 @@ export function HeroContent() {
       <section className="content-section faq-section" id="faq">
         <div className="section-copy">
           <span className="eyebrow">Frequently asked questions</span>
-          <h2>Fast answers for teams deciding how serious they want to look.</h2>
+          <h2>Quick answers about Odin, the system, and what it can support.</h2>
         </div>
         <div className="faq-list">
           {faqs.map((faq, index) => (
@@ -414,15 +418,15 @@ export function HeroContent() {
 
       <section className="cta-banner">
         <div>
-          <span className="eyebrow">Ready when you are</span>
-          <h2>The ultimate degen home for builders with taste.</h2>
+          <span className="eyebrow">Over a decade in the space</span>
+          <h2>Odin is not just a person. Odin is a system built for web3 momentum.</h2>
         </div>
         <div className="hero-actions">
           <a href="#coffee" className="cta-primary">
-            Buy coffee
+            Support the system
           </a>
           <a href="#wins" className="cta-secondary">
-            Revisit wins
+            Back to the top
           </a>
         </div>
       </section>

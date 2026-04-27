@@ -12,8 +12,8 @@ const syne = Syne({
 });
 
 export const metadata = {
-  title: "ODIN | Degen Space and Craft",
-  description: "A premium web3 home for space, wins, and digital craftsmanship.",
+  title: "ODIN | Signals, Solana, Teams, Momentum",
+  description: "The home of Odin: degen trading, Solana-native projects, web3 team building, signals, trends, and execution.",
 };
 
 export default function RootLayout({ children }) {

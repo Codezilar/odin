@@ -9,7 +9,7 @@ export function SocialDock() {
     <footer className="social-dock" id="contact" aria-label="Social links">
       <div className="social-dock-copy">
         <span className="social-dock-label">Main socials</span>
-        <p>Built for web3 presence, launch signal, and crafted digital identity.</p>
+        <p>Telegram for signals. Twitter for trends. Odin stays active where web3 attention actually moves.</p>
       </div>
       <div className="social-dock-links">
         {links.map((link) => (
