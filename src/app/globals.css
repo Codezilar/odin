@@ -582,8 +582,8 @@ a {
 }
 
 .coin-one {
-  top: 1rem;
-  right: 0.4rem;
+  top: 0.1rem;
+  right: -3rem;
   width: 102px;
   height: 102px;
   background: radial-gradient(circle at 30% 30%, #ffe7a3 0%, #e0ab2b 48%, #8a5a00 100%);
@@ -1692,7 +1692,6 @@ a {
 
 @media (max-width: 760px) {
   .landing-shell {
-    width: min(100% - 1rem, 1200px);
     margin: 0.5rem auto;
     padding: 0 3rem;
   }

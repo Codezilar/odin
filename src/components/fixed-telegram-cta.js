@@ -1,4 +1,4 @@
-const TELEGRAM_CHANNEL_URL = "https://t.me/";
+const TELEGRAM_CHANNEL_URL = "https://t.me/callsbyisaac";
 
 export function FixedTelegramCta() {
   return (
