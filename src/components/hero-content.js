@@ -91,10 +91,11 @@ export function HeroContent() {
             ODIN is a system.
           </h1>
           <p>
-            Sensei in degen trading, Solana-native projects, and web3 teams
+            A sensei in degen trading, Solana-native projects, and web3 teams
             that need more than hype. Odin works across signals, market
             trends, project building, team building, management, moderation,
-            and online positioning.
+            and online positioning with the calm of experience and the instinct
+            of someone who has really lived the space.
           </p>
           <p>
             <strong>Been in the space for over a decade.</strong>
