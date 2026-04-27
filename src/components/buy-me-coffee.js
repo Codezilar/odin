@@ -1,9 +1,18 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import {
+  Connection,
+  LAMPORTS_PER_SOL,
+  PublicKey,
+  SystemProgram,
+  Transaction,
+  clusterApiUrl,
+} from "@solana/web3.js";
 
 const RECEIVER_ADDRESS = "B519gRWqzp4u1KsK7AaDUE6CGdviJWc4gg2u8Ri7hjNW";
 const COFFEE_AMOUNTS = [0.1, 0.25, 0.5, 1];
+const SOLANA_CONNECTION = new Connection(clusterApiUrl("mainnet-beta"), "confirmed");
 
 function formatWalletAddress(address) {
   return `${address.slice(0, 4)}...${address.slice(-4)}`;
@@ -52,10 +61,16 @@ export function BuyMeCoffee() {
       setWalletAddress(publicKey ? publicKey.toString() : "");
     };
 
+    const handleDisconnect = () => {
+      setWalletAddress("");
+    };
+
     provider.on?.("accountChanged", handleAccountChange);
+    provider.on?.("disconnect", handleDisconnect);
 
     return () => {
       provider.off?.("accountChanged", handleAccountChange);
+      provider.off?.("disconnect", handleDisconnect);
     };
   }, []);
 
@@ -85,8 +100,11 @@ export function BuyMeCoffee() {
       const result = await provider.connect();
       const address = result?.publicKey?.toString() || provider.publicKey?.toString() || "";
       setWalletAddress(address);
+      setStatusMessage(`Connected with ${walletLabel || "wallet"} ${formatWalletAddress(address)}.`);
+      return provider;
     } catch {
       setStatusMessage("Wallet connection was canceled or unavailable.");
+      return null;
     } finally {
       setIsConnecting(false);
     }
@@ -103,23 +121,76 @@ export function BuyMeCoffee() {
   };
 
   const startWalletTransfer = async () => {
-    if (!walletAddress) {
-      await connectWallet();
+    let provider = getInjectedProvider();
+
+    if (!provider) {
+      setStatusMessage("Install Phantom or another Solana wallet to send SOL.");
       return;
+    }
+
+    if (!walletAddress) {
+      provider = await connectWallet();
+      if (!provider?.publicKey) {
+        return;
+      }
     }
 
     try {
       setIsSending(true);
-      setStatusMessage("Opening your wallet transfer flow...");
-      window.location.href = solanaUri;
-    } catch {
-      setStatusMessage("Could not open the wallet transfer flow.");
+      setStatusMessage("Preparing Phantom transaction...");
+
+      const sender = provider.publicKey;
+      const recipient = new PublicKey(RECEIVER_ADDRESS);
+      const latestBlockhash = await SOLANA_CONNECTION.getLatestBlockhash("confirmed");
+      const lamports = Math.round(selectedAmount * LAMPORTS_PER_SOL);
+
+      const transaction = new Transaction({
+        feePayer: sender,
+        recentBlockhash: latestBlockhash.blockhash,
+      }).add(
+        SystemProgram.transfer({
+          fromPubkey: sender,
+          toPubkey: recipient,
+          lamports,
+        }),
+      );
+
+      let signature;
+
+      if (typeof provider.signAndSendTransaction === "function") {
+        const result = await provider.signAndSendTransaction(transaction);
+        signature = result?.signature;
+      } else if (typeof provider.signTransaction === "function") {
+        const signedTransaction = await provider.signTransaction(transaction);
+        signature = await SOLANA_CONNECTION.sendRawTransaction(signedTransaction.serialize());
+      } else {
+        throw new Error("Wallet does not support Solana transaction signing.");
+      }
+
+      if (!signature) {
+        throw new Error("Missing transaction signature.");
+      }
+
+      await SOLANA_CONNECTION.confirmTransaction(
+        {
+          signature,
+          blockhash: latestBlockhash.blockhash,
+          lastValidBlockHeight: latestBlockhash.lastValidBlockHeight,
+        },
+        "confirmed",
+      );
+
+      setStatusMessage(`Transfer sent. Signature: ${signature.slice(0, 8)}...${signature.slice(-8)}.`);
+    } catch (error) {
+      const message =
+        error instanceof Error && error.message
+          ? error.message
+          : "Could not complete the wallet transfer.";
+      setStatusMessage(message);
     } finally {
       setIsSending(false);
     }
   };
-
-  const solanaUri = `solana:${RECEIVER_ADDRESS}?amount=${selectedAmount}&label=${encodeURIComponent("ODIN Coffee")}&message=${encodeURIComponent("Coffee support for ODIN/HQ")}`;
   const phantomUri = `https://phantom.app/ul/v1/transfer?recipient=${encodeURIComponent(RECEIVER_ADDRESS)}&amount=${selectedAmount}&label=${encodeURIComponent("ODIN Coffee")}&message=${encodeURIComponent("Coffee support for ODIN/HQ")}`;
 
   return (
@@ -129,9 +200,8 @@ export function BuyMeCoffee() {
           <span className="eyebrow">Buy me a coffee</span>
           <h2>Support the work with a quick SOL tip.</h2>
           <p>
-            Connect your wallet first, then trigger a SOL transfer with a
-            familiar web3 wallet handoff flow. You can still copy the address
-            any time.
+            Connect Phantom, approve the transaction, and send SOL directly
+            from the page. You can still copy the address any time.
           </p>
 
           <div className="coffee-amounts" role="group" aria-label="Select coffee amount">
@@ -155,7 +225,7 @@ export function BuyMeCoffee() {
             >
               {walletAddress
                 ? isSending
-                  ? "Opening wallet..."
+                  ? "Sending..."
                   : `Send ${selectedAmount} SOL`
                 : isConnecting
                   ? "Connecting..."
@@ -169,9 +239,6 @@ export function BuyMeCoffee() {
           <div className="support-links">
             <a href={phantomUri} className="support-link" target="_blank" rel="noreferrer">
               Open in Phantom
-            </a>
-            <a href={solanaUri} className="support-link">
-              Open Solana app
             </a>
           </div>
 
