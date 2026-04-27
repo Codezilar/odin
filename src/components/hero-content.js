@@ -1,3 +1,5 @@
+import { BuyMeCoffee } from "@/components/buy-me-coffee";
+
 const processCards = [
   {
     id: "01",
@@ -99,8 +101,8 @@ export function HeroContent() {
             <a href="#proof" className="cta-primary">
               View wins
             </a>
-            <a href="#contact" className="cta-secondary">
-              Connect socials
+            <a href="#coffee" className="cta-secondary">
+              Buy a coffee
             </a>
           </div>
 
@@ -173,6 +175,8 @@ export function HeroContent() {
           <p>Founder networks</p>
         </div>
       </section>
+
+      <BuyMeCoffee />
 
       <section className="content-section" id="process">
         <div className="section-copy center">
@@ -345,7 +349,7 @@ export function HeroContent() {
           {featureCards.map((feature) => (
             <article key={feature} className="feature-card">
               <h3>{feature}</h3>
-              <a href="#contact">Learn more</a>
+              <a href="#coffee">Learn more</a>
             </article>
           ))}
         </div>
@@ -414,8 +418,8 @@ export function HeroContent() {
           <h2>The ultimate degen home for builders with taste.</h2>
         </div>
         <div className="hero-actions">
-          <a href="#contact" className="cta-primary">
-            Let&apos;s talk
+          <a href="#coffee" className="cta-primary">
+            Buy coffee
           </a>
           <a href="#wins" className="cta-secondary">
             Revisit wins
